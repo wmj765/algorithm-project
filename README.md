@@ -1,4 +1,4 @@
-##Algorithms and data structures
+## Algorithms and data structures
 
 ### 开门篇
 人生路上，我们会遇到很多的坎。跨过去，你就可以成长，跨不过去就是困难和停滞。
