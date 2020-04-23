@@ -6,5 +6,6 @@
     
 - 基础篇   
    
-   [2.1 数组](src/main/java/chapter02/Array.md)
+   [2.1 数组](src/main/java/chapter02/Array.md)  
    
+   [2.2 链表](src/main/java/chapter02/LinkList.md)
