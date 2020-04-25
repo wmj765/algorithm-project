@@ -15,7 +15,9 @@ public class MyLinkedList<T> {
     private Node head;
     private int size;
 
-
+    /**
+     * 添加元素
+     */
     public void add(T data) {
         if (head == null) {
             head = new Node(data, null);
@@ -60,19 +62,36 @@ public class MyLinkedList<T> {
         return false;
     }
 
-    private Node revertNodeWithList(Node n){
+    public void reverse(){
+        Node newNode = null;
+        Node node = null;
+        while (head != null) {
+            //定义变量记录头指针
+            node = head;
+            //删除头指针
+            head = head.next;
+            //插入数据到新节点
+            node.next = newNode;
+            newNode = node;
+        }
+        head = newNode;
+    }
+
+    /**
+     * 反转链表借助list，时间复杂度O(n) 空间复杂度O(n)
+     */
+    public MyLinkedList reverseNodeWithList() {
         List<T> list = new ArrayList<T>();
-        Node p = n;
+        Node p = this.head;
         while (p != null) {
             list.add(p.data);
             p = p.next;
         }
-        Node result = null;
-        Node tail = null;
-        for (int i = list.size() - 1; i > 0; i--) {
-
+        MyLinkedList result = new MyLinkedList();
+        for (int i = list.size() - 1; i >= 0; i--) {
+            result.add(list.get(i));
         }
-        return n;
+        return result;
     }
 
     class Node {
@@ -88,6 +107,7 @@ public class MyLinkedList<T> {
         public T getData() {
             return data;
         }
+
         public Node getNext() {
             return next;
         }

@@ -15,5 +15,10 @@ public class Test {
         linkedList.add("4");
         linkedList.printList();
 
+        linkedList.reverse();
+
+        MyLinkedList reverseList = linkedList.reverseNodeWithList();
+        reverseList.printList();
+
     }
 }
