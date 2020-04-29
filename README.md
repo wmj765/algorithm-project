@@ -6,8 +6,8 @@
     
 - 基础篇   
    
-   [2.1 数组](src/main/java/chapter02/Array.md)  
+   [2.1 数组](src/main/java/chapter02/array/Array.md)  
    
-   [2.2 链表](src/main/java/chapter02/LinkList.md)
+   [2.2 链表](src/main/java/chapter02/linkedlist/LinkList.md)
    
-   [2.3 栈](src/main/java/chapter02/stack.md)
+   [2.3 栈](src/main/java/chapter02/stack/stack.md)

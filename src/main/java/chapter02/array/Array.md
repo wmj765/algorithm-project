@@ -5,7 +5,7 @@
 
 - 连续内存空间   
 计算机会给数组分配一个连续的内存空间，通过内存地址查找某index的元素值  
-![内存地址](../img/array-memory.jpeg)
+![内存地址](../../img/array-memory.jpeg)
 a[i] = a_baseAddress+i*space_size;  
 特点：查找某个位置的数据时间复杂度O(1),但是插入和删除数据最坏复杂度都是O(n)  
 
@@ -30,7 +30,7 @@ address = base_address + ( i * n + j) * type_size
 
 - 数组溢出问题   
 成员变量素组存放在栈内存中，并且是从高低地址向低位地址生长，假如说数组越界并没有进行安全校验会造成数据被覆盖问题  
-![数组越界](../img/outIndex.jpg)  
+![数组越界](../../img/outIndex.jpg)  
 
 -参考资料  
 [数组越界资料](http://www.baidu.com)

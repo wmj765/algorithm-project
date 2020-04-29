@@ -1,6 +1,4 @@
-package chapter02;
-
-import com.sun.glass.events.mac.NpapiEvent;
+package chapter02.linkedlist;
 
 import java.util.ArrayList;
 import java.util.List;

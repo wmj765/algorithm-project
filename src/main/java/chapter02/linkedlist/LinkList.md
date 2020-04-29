@@ -5,7 +5,7 @@
 
 #### 内存分布   
  
-![内存分布](../img/linkedlist-memory.jpeg)
+![内存分布](../../img/linkedlist-memory.jpeg)
 
 #### 特点   
    - 插入：数据不需要移动数据，只需要修改节点指针指向，时间复杂度和空间复杂度都为O(1)   

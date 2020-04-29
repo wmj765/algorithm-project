@@ -1,7 +1,6 @@
-package chapter02;
+package chapter02.linkedlist;
 
-import java.util.ArrayList;
-import java.util.List;
+import chapter02.linkedlist.MyLinkedList;
 
 /**
  * @author wangmj
