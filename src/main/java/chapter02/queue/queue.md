@@ -25,7 +25,7 @@
   - maximumPoolSize 最大线程数（核心线程数+非核心线程池数）,线程池所能创建的最大线程数。  
   - keepAliveTime 存活时间，当线程数目超过核心线程池时，线程所能idle的最大时间，超出时间将被terminating
   - unit 存活时间单位
-  - BlockQueue 工作队列，当没有足够的线程处理任务的时候会将任务放在工作队列中  
+  - BlockQueue 工作队列，当达到核心线程数后，处理任务的时候会将任务放在工作队列中  
   - RejectedExecutionHandler  当工作队列满并且再有任务请求创建线程时会执行  
     - AbortPolicy 默认的执行策略，当线程数等于最大线程数，再次请求时会抛出RejectedExecutionException，任务也不会被执行  
     - DiscardPolicy 忽略执行策略，当达到最大线程数时，直接忽略，不抛出任何一场
