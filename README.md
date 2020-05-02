@@ -10,4 +10,6 @@
    
    [2.2 链表](src/main/java/chapter02/linkedlist/LinkList.md)
    
-   [2.3 栈](src/main/java/chapter02/stack/stack.md)
+   [2.3 栈](src/main/java/chapter02/stack/stack.md)  
+   
+   [2.4 队列](src/main/java/chapter02/queue/queue.md)
