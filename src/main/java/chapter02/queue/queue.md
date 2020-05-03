@@ -33,6 +33,7 @@
     - DiscardOldestPolicy 忽略最先入队咧的任务，并将新的任务入队列
 
 - 五种常见的线程池  
+
   - newFixedThreadPool 固定大小的线程池，**核心线程池数等于最大线程池数**，此时存活时间已没有意义，线程将一直存活。**队列为LinkedBlockingQueue**，
   是一个无限队列，任务可以一直添加，对于不需要及时返回结果的场景比较适合
   ```
@@ -42,7 +43,8 @@
                                            new LinkedBlockingQueue<Runnable>(),
                                            threadFactory);
          } 
-  ```
+  ```   
+  
   - newCachedThreadPool 缓存线程池.**核心线程数为0，最大线程数时INTEGER.MAX**，意味着线程池可以无限大，但是没有任务的时候没有存活的线程。
   队列采用了**SynchronousQueue**，这个队列只能同时有一个任务执行，当任务入队后，必须等到任务出队之后新的任务才能入队，意味着如果有线程再队列中，
   新的任务会被创建再线程池。**此线程池适合执行时间很短的任务** 
@@ -52,7 +54,36 @@
                                         60L, TimeUnit.SECONDS,
                                         new SynchronousQueue<Runnable>());
       }
+  ```    
+  
+  - newSingleThreadExecutor 单一线程的线程池。核心线程数和最大线程池数都为1。存活时间没有意义。队列为LinkedBlockingQueue无限队列，
+  同时只有一个任务执行，其他任务无限再队列中排序
   ```
-
+  public static ExecutorService newSingleThreadExecutor(ThreadFactory threadFactory) {
+          return new FinalizableDelegatedExecutorService
+              (new ThreadPoolExecutor(1, 1,
+                                      0L, TimeUnit.MILLISECONDS,
+                                      new LinkedBlockingQueue<Runnable>(),
+                                      threadFactory));
+      }
+  ```   
+  
+  - newScheduleThreadPool 定时任务线程池。最大线程数目为Integer.MAX_VALUE,且非核心线程池一旦闲置马上被回收。队列为DelayedWorkQueue,
+  优先级队列，可以根据优先级来决定出队的顺序
+  ```
+  public ScheduledThreadPoolExecutor(int corePoolSize,
+                                         ThreadFactory threadFactory) {
+          super(corePoolSize, Integer.MAX_VALUE, 0, NANOSECONDS,
+                new DelayedWorkQueue(), threadFactory);
+      }
+  ```   
+  
+  - newSingleThreadScheduledExecutor 单一线程执行的调度任务线程池。
+  ```
+  public static ScheduledExecutorService newSingleThreadScheduledExecutor(ThreadFactory threadFactory) {
+          return new DelegatedScheduledExecutorService
+              (new ScheduledThreadPoolExecutor(1, threadFactory));
+      }
+  ```
 
 
