@@ -25,7 +25,7 @@ public class ArrayQueue {
     }
 
     /**
-     * 入队，当数据有空间且head不为0的时候先进性数据迁移，之后再次入队
+     * 入队，当数据有空间且head不为0 tail指向尾部的时候先进行数据迁移，之后再次入队
      *
      * @param value 元素
      * @return 是否成功
