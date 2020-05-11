@@ -5,12 +5,12 @@ package chapter02.queue;
  **/
 public class LinkedQueue<T> {
     //头指针index
-    private Node head;
+    private Node<T> head;
     //尾指针index
-    private Node tail;
+    private Node<T> tail;
 
     public LinkedQueue() {
-        this.head = new Node<T>();
+
     }
 
     /**
@@ -20,11 +20,45 @@ public class LinkedQueue<T> {
      * @return 是否成功
      */
     public boolean enqueue(T value) {
+        Node node = new Node(value, null);
+        if (head == null) {
+            head = node;
+            tail = head;
+        }else {
+            tail.next = node;
+            tail = node;
+        }
         return true;
+    }
+
+    public T dequeue(){
+        if (head == null) {
+            return null;
+        }
+        T value = head.value;
+        head = head.next;
+        return value;
     }
 
     class Node <T>{
         private Node next;
         private T value;
+
+        public Node(T value,Node next) {
+            this.next = next;
+            this.value = value;
+        }
+    }
+
+    public static void main(String[] args) {
+        LinkedQueue<String> linkedQueue = new LinkedQueue<>();
+        linkedQueue.enqueue("1");
+        linkedQueue.enqueue("2");
+        linkedQueue.enqueue("3");
+        linkedQueue.enqueue("4");
+        System.out.println(linkedQueue.dequeue());
+        System.out.println(linkedQueue.dequeue());
+        System.out.println(linkedQueue.dequeue());
+        System.out.println(linkedQueue.dequeue());
     }
 }
