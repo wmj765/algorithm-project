@@ -12,4 +12,6 @@
    
    [2.3 栈](src/main/java/chapter02/stack/stack.md)  
    
-   [2.4 队列](src/main/java/chapter02/queue/queue.md)
+   [2.4 队列](src/main/java/chapter02/queue/queue.md)  
+   
+   [2.4 递归](src/main/java/chapter02/recursion/recursion.md)
