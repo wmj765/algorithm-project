@@ -2,20 +2,24 @@ package chapter02.sort;
 
 /**
  * 归并排序
- *
- * @author wangmj
- **/
+ */
 public class MergeSort {
     public static void main(String[] args) {
-        merge(10, 12, "origin");
+        int arr[] = {2,1,3,5,6,9,8};
+        merge(arr,0,6);
     }
 
-    static void merge(int i, int j, String text) {
-        System.out.println(i + "," + j + "," + text);
-        if (i >= j) {
+    public static void merge(int[] arr,int l,int n){
+        System.out.println(l+","+n);
+        if (l >= n) {
             return;
         }
-        merge(++i, j, "first");
-        merge(i + 10, j + 10, "second");
+        int mid = (l + n) / 2;
+        merge(arr, l, mid);
+        merge(arr, mid + 1, n);
+        System.out.println("xxxxxxxx");
+
     }
+
+
 }
