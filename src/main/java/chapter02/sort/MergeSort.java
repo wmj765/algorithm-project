@@ -1,25 +1,62 @@
 package chapter02.sort;
 
+import java.util.Arrays;
+
 /**
  * 归并排序
  */
 public class MergeSort {
     public static void main(String[] args) {
-        int arr[] = {2,1,3,5,6,9,8};
-        merge(arr,0,6);
+        int[] arr = {8, 7, 6, 5, 4, 3, 2, 1};
+        merge(arr, 0, 7);
+        System.out.println(Arrays.toString(arr));
+
     }
 
-    public static void merge(int[] arr,int l,int n){
-        System.out.println(l+","+n);
-        if (l >= n) {
+    /**
+     * 递归merge
+     */
+    private static void merge(int[] arr, int l, int r) {
+        if (l >= r) {
             return;
         }
-        int mid = (l + n) / 2;
+        //计算中间index
+        int mid = l + (r - l) / 2;
         merge(arr, l, mid);
-        merge(arr, mid + 1, n);
-        System.out.println("xxxxxxxx");
-
+        merge(arr, mid + 1, r);
+        mergeArr(arr, l, mid, r);
     }
 
+    private static void mergeArr(int[] arr, int l, int mid, int r) {
+        int i = l;
+        int j = mid + 1;
+        int[] temp = new int[r - l + 1];
+        int k = 0;
+        //比较左侧数组和右侧数组的大小，并依次放入临时数组
+        while (i <= mid && j <= r) {
+            if (arr[j] < arr[i]) {
+                temp[k++] = arr[j++];
+            } else {
+                temp[k++] = arr[i++];
+            }
+        }
+
+        int start = i;
+        int end = mid;
+        if (j <= r) {
+            start = j;
+            end = r;
+        }
+        //将剩余的数组放入到temp中
+        while (start <= end) {
+            temp[k++] = arr[start++];
+        }
+
+        //将temp合并到arr
+        for (i = 0; i <= r - l; i++) {
+            arr[i + l] = temp[i];
+        }
+
+    }
 
 }
